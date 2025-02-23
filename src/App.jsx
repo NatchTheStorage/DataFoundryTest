@@ -1,20 +1,19 @@
 import { useState } from "react";
 import "./App.css";
 import LoginPage from "./pages/loginPage";
-import ServiceRequestPage from "./pages/serviceRequestPage";
+import ErrorPage from "./pages/errorPage";
 import { Box, Button, TextField } from "@mui/material";
-import { useAuth } from "react-oidc-context";
-import RequestDisplayPage from "./pages/requestDisplayPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/homePage";
 
 function App() {
   return (
     <Box>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/create-request" element={<ServiceRequestPage />} />
-          <Route path="/requests" element={<RequestDisplayPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </Box>
